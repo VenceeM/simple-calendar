@@ -1,5 +1,5 @@
 # Simple Calendar
-This is just a simple calendar that you can use in your project and soon will be added new features for this simple calendar
+This is a simple calendar that you can use in your project. New features will be added soon.
 
 ## Dependency
 ````Kotlin

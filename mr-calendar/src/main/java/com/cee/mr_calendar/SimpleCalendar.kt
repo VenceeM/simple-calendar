@@ -50,7 +50,7 @@ import java.util.Date
 import java.util.Locale
 
 @Composable
-fun SimpleCalendar(selectedColor:Color = Color(0xFF98C84F),selectedDate:(String?)->Unit) {
+fun SimpleCalendar(modifier: Modifier = Modifier,selectedColor:Color = Color(0xFF98C84F),selectedDate:(String?)->Unit) {
     var currentMonth by remember { mutableStateOf(Calendar.getInstance().get(Calendar.MONTH)) }
     var currentYear by remember { mutableStateOf(Calendar.getInstance().get(Calendar.YEAR)) }
     var currentDay by remember { mutableStateOf(Calendar.getInstance().get(Calendar.DAY_OF_MONTH)) }
@@ -70,9 +70,9 @@ fun SimpleCalendar(selectedColor:Color = Color(0xFF98C84F),selectedDate:(String?
         daysToShowFromNextMonth = 0
     }
 
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(start = 15.dp, end = 15.dp), verticalArrangement = Arrangement.Center) {
+    Column(modifier = modifier
+        .wrapContentSize()
+        .padding(start = 15.dp, end = 15.dp)) {
         Month(
             monthName = monthName(currentMonth),
             onPreviousMonth = {

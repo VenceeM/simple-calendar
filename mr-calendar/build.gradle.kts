@@ -58,11 +58,12 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 }
-
 afterEvaluate {
     publishing {
         publications{
             create<MavenPublication>("release"){
+                from(components["release"])
+
                 groupId = "com.github.venceeM"
                 artifactId = "mr-calendar"
                 version = "0.1.0"
@@ -70,5 +71,6 @@ afterEvaluate {
         }
     }
 }
+
 
 

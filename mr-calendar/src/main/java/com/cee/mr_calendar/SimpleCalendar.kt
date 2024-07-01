@@ -136,7 +136,7 @@ fun SimpleCalendar(selectedColor:Color = Color(0xFF98C84F),selectedDate:(String?
     }
 }
 
-fun getDaysInPreviousMonth(month: Int, year: Int, firstDayOfWeek: Int):List<Int> {
+internal fun getDaysInPreviousMonth(month: Int, year: Int, firstDayOfWeek: Int):List<Int> {
     val calendar = Calendar.getInstance()
     calendar.set(year, month - 1, 1)
     val daysInPreviousMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
@@ -148,7 +148,7 @@ fun getDaysInPreviousMonth(month: Int, year: Int, firstDayOfWeek: Int):List<Int>
 }
 
 @Composable
-fun DayItem(
+internal fun DayItem(
     selectedColor: Color,
     day: Int = 10,
     selectedDay:Date? = null,
@@ -201,21 +201,21 @@ fun DayItem(
     }
 }
 
-fun getDaysInMonth(month: Int, year: Int): List<Int> {
+internal fun getDaysInMonth(month: Int, year: Int): List<Int> {
     val calendar = Calendar.getInstance()
     calendar.set(year, month, 1)
     val daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
     return (1..daysInMonth).toList()
 }
 
-fun monthName(month: Int): String {
+internal fun monthName(month: Int): String {
     return SimpleDateFormat("MMMM", Locale.getDefault()).format(
         Calendar.getInstance().apply { set(Calendar.MONTH, month) }.time
     )
 }
 
 @Composable
-fun Month(monthName:String,onPreviousMonth: () -> Unit, onNextMonth: () -> Unit){
+internal fun Month(monthName:String, onPreviousMonth: () -> Unit, onNextMonth: () -> Unit){
     Row(
         modifier = Modifier
             .fillMaxWidth()
